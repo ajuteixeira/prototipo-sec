@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="width: 1280px; height: 1382px; overflow: hidden; position: relative;">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Fórum da Questão | SEC - Portal do Aluno</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary-fixed-variant": "#71352c",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c7c5d1",
+                        "tertiary-fixed": "#ffdad4",
+                        "surface-container": "#e5eeff",
+                        "on-surface-variant": "#464650",
+                        "surface-gray": "#F8FAFC",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary-fixed": "#10134d",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-error-container": "#93000a",
+                        "unifor-navy": "#000040",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#673d00",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#885200",
+                        "secondary-container": "#fea532",
+                        "on-secondary-fixed": "#2b1700",
+                        "error": "#ba1a1a",
+                        "outline": "#777681",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#bb7064",
+                        "success-green": "#10B981",
+                        "primary": "#000000",
+                        "academic-gold": "#F9A12E",
+                        "error-red": "#EF4444",
+                        "secondary-fixed": "#ffddbb",
+                        "inverse-surface": "#213145",
+                        "surface-container-low": "#eff4ff",
+                        "primary-container": "#10134d",
+                        "on-tertiary-fixed": "#3a0a06",
+                        "on-secondary-container": "#6b3f00",
+                        "primary-fixed": "#e0e0ff",
+                        "background": "#f8f9ff",
+                        "primary-fixed-dim": "#bfc2ff",
+                        "inverse-primary": "#bfc2ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed-variant": "#3d417b",
+                        "on-primary-container": "#7b7fbd",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-container": "#3a0a06",
+                        "secondary-fixed-dim": "#ffb868",
+                        "tertiary-fixed-dim": "#ffb4a8",
+                        "surface-tint": "#555994"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Open Sans"],
+                        "body-lg": ["Open Sans"],
+                        "headline-lg-mobile": ["Open Sans"],
+                        "headline-md": ["Open Sans"],
+                        "label-md": ["Open Sans"],
+                        "display-lg": ["Open Sans"],
+                        "body-sm": ["Open Sans"],
+                        "headline-sm": ["Open Sans"],
+                        "headline-lg": ["Open Sans"],
+                        "body-md": ["Open Sans"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c7c5d1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000040;
+        }
+
+        .forum-thread-line {
+            position: absolute;
+            left: 24px;
+            top: 60px;
+            bottom: -20px;
+            width: 2px;
+            background-color: #e5eeff;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col antialiased">
+    <!-- TopAppBar (Identical to SCREEN_46) -->
+    <header class="bg-unifor-navy text-on-primary sticky top-0 z-50 w-full">
+        <div class="flex justify-between items-center w-full px-6 h-20">
+            <div class="flex items-center gap-4">
+                <button aria-label="Menu" class="text-on-primary lg:hidden">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-academic-gold" style="font-size: 32px;">school</span>
+                    <a href="geral_dashboard.html"
+                        class="font-headline-md text-headline-md font-bold text-academic-gold">SEC</a>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <button
+                    class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-unifor-navy overflow-hidden cursor-pointer border border-white/20">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: &quot;FILL&quot; 1;">person</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-grow min-w-0">
+        <!-- Side Navigation Drawer (Identical to SCREEN_46) -->
+        <nav class="bg-surface-container-low dark:bg-inverse-surface h-full w-64 border-r border-outline-variant flex flex-col py-base z-40 overflow-y-auto sticky top-20"
+            style="height: calc(100vh - 5rem);">
+            <div class="px-6 py-4 mb-4 border-b border-outline-variant">
+                <div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-3">
+                    <span class="material-symbols-outlined text-unifor-navy"
+                        style="font-variation-settings: &quot;FILL&quot; 0;">person</span>
+                </div>
+                <h2 class="font-headline-sm text-headline-sm text-unifor-navy">Portal do Aluno</h2>
+                <p class="font-label-md text-label-md text-on-surface-variant mt-1">Engenharia de Software</p>
+                <p class="font-label-md text-label-md text-on-surface-variant opacity-70">UNIFOR</p>
+            </div>
+            <ul class="flex flex-col gap-2 px-2">
+                <li class="">
+                    <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-r-full transition-all duration-200 ease-in-out font-label-lg text-label-lg"
+                        href="#">
+                        <span class="material-symbols-outlined"
+                            style="font-variation-settings: &quot;FILL&quot; 0;">dashboard</span>Dashboard
+                    </a>
+                </li>
+                <li class="">
+                    <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-r-full transition-all duration-200 ease-in-out font-label-lg text-label-lg"
+                        href="#">
+                        <span class="material-symbols-outlined"
+                            style="font-variation-settings: &quot;FILL&quot; 0;">school</span>Novo Simulado
+                    </a>
+                </li>
+                <li class="">
+                    <a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-r-full transition-all duration-200 ease-in-out font-label-lg text-label-lg"
+                        href="#">
+                        <span class="material-symbols-outlined"
+                            style="font-variation-settings: &quot;FILL&quot; 1;">history</span>Histórico
+                    </a>
+                </li>
+                <li class="">
+                    <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-r-full transition-all duration-200 ease-in-out font-label-lg text-label-lg"
+                        href="#">
+                        <span class="material-symbols-outlined"
+                            style="font-variation-settings: &quot;FILL&quot; 0;">bar_chart</span>Desempenho
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Main Content Canvas -->
+        <main
+            class="flex-grow w-full px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto min-h-screen bg-surface-bright">
+            <!-- Question Header Block -->
+            <section class="bg-white rounded-xl border border-outline-variant p-8 mb-8 shadow-sm">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+
+                            <span
+                                class="bg-academic-gold/20 text-secondary px-3 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider">Engenharia
+                                de Requisitos</span>
+                            <span
+                                class="flex items-center gap-1 bg-success-green/10 text-success-green px-3 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-[18px]"
+                                    style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+                                você acertou</span>
+                        </div>
+                        <h2 class="font-headline-md text-headline-md text-unifor-navy">Fórum - Questão #4102</h2>
+                        <div class="flex items-center gap-2 mt-2">
+
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant italic mt-2">
+                            "Considerando os princípios de elicitação de requisitos em metodologias ágeis, analise as
+                            afirmações sobre o envolvimento do Product Owner e as dinâmicas de feedback contínuo..."
+                        </p>
+                    </div>
+                    <button
+                        class="hidden lg:flex text-unifor-navy hover:text-academic-gold transition-colors items-center gap-2 border border-outline-variant px-4 py-2 rounded-lg bg-surface-container-lowest">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                        <span class="font-label-lg text-label-lg">Voltar</span>
+                    </button>
+                </div>
+                <div class="mt-6 pt-6 border-t border-outline-variant flex justify-center">
+                    <button
+                        class="flex items-center gap-2 text-unifor-navy hover:text-academic-gold transition-all duration-200 font-label-lg text-label-lg group">
+                        <span
+                            class="material-symbols-outlined group-hover:translate-y-0.5 transition-transform">keyboard_arrow_down</span>
+                        Ver Questão Completa
+                    </button>
+                </div>
+            </section>
+            <!-- Feed de Comentários (Timeline) -->
+            <div class="space-y-6 mb-12 relative">
+                <!-- Tutor Comment (Primary Authority) -->
+                <article class="relative">
+                    <div class="flex gap-4">
+                        <div class="z-10">
+                            <img alt="Avatar Professor"
+                                class="w-12 h-12 rounded-full border-2 border-success-green bg-white"
+                                data-alt="A professional headshot of a senior male professor with a friendly expression, wearing a navy blue academic blazer. The lighting is soft and studio-quality, emphasizing a professional yet approachable educational atmosphere. The background is a clean, minimalist off-white, reflecting an institutional and trustworthy aesthetic in light mode."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5hgq0f-xCffackO4C8hYVZGin_OIgYGE2t2_Chi0NOEuJRAgWPxIbtQFPhNc1fq1TSFChau7A881wsaMstUysHTnMqpbQtS_pPUC2fMC8WlPcj22oCUBcItE_pXuPzndXn0OgrH3s9Zz5N9Vo_Mh1DQc_KMkO45sIpKpIxQnmuDNYF4r6QGOkYLDoslNq4205WRo814-nQw1Bxvp3OCh6JHIhc-MHPzlafEQFT4lIhvnlxDeabg9Sbg5yIaQSo6PnhSAvzU4INsc">
+                        </div>
+                        <div class="flex-1 bg-white border-2 border-success-green rounded-xl p-6 shadow-sm relative"
+                            style="transform: translateY(0px); transition: transform 0.2s ease-out;">
+                            <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <span class="font-label-lg text-label-lg text-unifor-navy">Prof. Dr. Marcos
+                                        Vinícius</span>
+                                    <span
+                                        class="ml-2 bg-success-green text-white text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Tutor</span>
+                                    <p class="text-[12px] text-outline italic">Hoje às 09:45</p>
+                                </div>
+                                <div class="flex gap-2"><button
+                                        class="flex items-center gap-1 text-unifor-navy hover:text-academic-gold transition-colors font-label-md">
+                                        <span class="material-symbols-outlined text-[18px]">reply</span>
+                                        Responder
+                                    </button>
+                                    <button class="text-outline hover:text-unifor-navy">
+
+                                    </button>
+                                    <button class="text-outline hover:text-unifor-navy">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="font-body-md text-body-md text-on-surface leading-relaxed">
+                                <p class="">Olá, pessoal! Esta questão aborda um ponto crucial do ENADE: a transição
+                                    entre o modelo clássico e o ágil. Lembrem-se que no Manifesto Ágil, o foco é na
+                                    colaboração com o cliente sobre a negociação de contratos. Na elicitação, isso se
+                                    traduz em histórias de usuário e refinamentos constantes.<br></p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forum-thread-line"></div>
+                </article>
+                <!-- Student Reply (Threaded) -->
+                <article class="ml-16">
+                    <div class="flex gap-4">
+                        <div class="z-10">
+                            <img alt="Avatar Aluno"
+                                class="w-10 h-10 rounded-full border-2 border-outline-variant bg-white"
+                                data-alt="A vibrant profile picture of a young female university student smiling, wearing casual academic attire. The background is a soft blue-gray gradient, creating a modern and clean UI feel. The portrait is high-definition with soft focus on the edges, emphasizing a friendly and collaborative student community vibe within a professional portal."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNyfCUrmzSQvRLox4Jtg3q-JDhpef193MtrOhX0i98x6Jn6z1ar2EzjNlfEUjQe9xgTXsebO5iacgnLAdkPFHHmQ4W1JojSPiarP2sle2hdkk-3cfizXUGJ0KFrQodVg8BZXmbeZXoovUeozTUg2j4Chr5d0otkK2XtaVYxJujavjdbz3o0nqyYQQcjxjMk4wYAea2MqRvKobm3Y50pAhPoKo9skfDY-bG0ZM4zD_XsMt2FbAh865ueXZ2DoV98o8H2kobYL1SJnI">
+                        </div>
+                        <div class="flex-1 bg-white border border-outline-variant rounded-xl p-5 shadow-sm"
+                            style="transform: translateY(0px); transition: transform 0.2s ease-out;">
+                            <div class="flex justify-between items-center mb-3">
+                                <div>
+                                    <span class="font-label-lg text-label-lg text-unifor-navy">Ana Beatriz Souza</span>
+                                    <p class="text-[12px] text-outline">Hoje às 10:12</p>
+                                </div>
+                                <div class="flex gap-2"><button
+                                        class="flex items-center gap-1 text-unifor-navy hover:text-academic-gold transition-colors font-label-md"><span
+                                            class="material-symbols-outlined text-[18px]">reply</span>Responder</button>
+                                </div>
+                            </div>
+                            <p class="font-body-md text-body-md text-on-surface">Excelente explicação, professor! No
+                                caso da alternativa 'C', ela menciona a documentação exaustiva. Isso seria o principal
+                                distrator, certo? Já que o ágil prioriza software em funcionamento.</p>
+                        </div>
+                    </div>
+                </article>
+                <!-- Regular Student Comment -->
+                <article class="pt-4">
+                    <div class="flex gap-4">
+                        <div class="z-10">
+                            <img alt="Avatar Aluno"
+                                class="w-12 h-12 rounded-full border-2 border-outline-variant bg-white"
+                                data-alt="A professional and clean portrait of a male student wearing a modern charcoal hoodie. The lighting is bright and even, suited for a high-end educational platform profile. The aesthetic is minimalist and corporate, using a light color palette to maintain consistency with a rigorous academic environment."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRigdOp64NCLPCN9UWafWhc7b7C6uC5MfE4UUAkmge9GymqsnINLA4-A1BkO6hspoWeAMp6B0cGjyXsWSMIQ5FHWy4f5aYGt7CgMLyAaqkLFU6cfUAUyBZ7NmlfuuVOTI7uyV4WoP2O9WAMG5CbFynT7euDaBG1o2X32TazqyMzF24vU1o_IjjPZ0e37IcSZI1HJys73BRhdZp9XL9FgZIv-YNqoHHkR5Iw-tVrNsCxbefL9MIJRwOUqRImXwJiFs9RZF55-EKUD4">
+                        </div>
+                        <div class="flex-1 bg-white border border-outline-variant rounded-xl p-6 shadow-sm"
+                            style="transform: translateY(0px); transition: transform 0.2s ease-out;">
+                            <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <span class="font-label-lg text-label-lg text-unifor-navy">Ricardo Menezes</span>
+                                    <p class="text-[12px] text-outline italic">Ontem às 18:20</p>
+                                </div>
+                                <div class="flex gap-2"><button
+                                        class="flex items-center gap-1 text-unifor-navy hover:text-academic-gold transition-colors font-label-md"><span
+                                            class="material-symbols-outlined text-[18px]">reply</span>Responder</button>
+                                </div>
+                            </div>
+                            <p class="font-body-md text-body-md text-on-surface">Fiquei em dúvida entre a B e a D.
+                                Alguém mais achou que o termo 'Stakeholders' estava muito amplo para o contexto de SCRUM
+                                especificamente?</p>
+                        </div>
+                    </div>
+                </article>
+                <!-- New Student Comment 1 -->
+                <article class="pt-4">
+                    <div class="flex gap-4">
+                        <div class="z-10">
+                            <img alt="Avatar Aluno"
+                                class="w-12 h-12 rounded-full border-2 border-outline-variant bg-white"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5hgq0f-xCffackO4C8hYVZGin_OIgYGE2t2_Chi0NOEuJRAgWPxIbtQFPhNc1fq1TSFChau7A881wsaMstUysHTnMqpbQtS_pPUC2fMC8WlPcj22oCUBcItE_pXuPzndXn0OgrH3s9Zz5N9Vo_Mh1DQc_KMkO45sIpKpIxQnmuDNYF4r6QGOkYLDoslNq4205WRo814-nQw1Bxvp3OCh6JHIhc-MHPzlafEQFT4lIhvnlxDeabg9Sbg5yIaQSo6PnhSAvzU4INsc">
+                        </div>
+                        <div class="flex-1 bg-white border border-outline-variant rounded-xl p-6 shadow-sm"
+                            style="transform: translateY(0px); transition: transform 0.2s ease-out;">
+                            <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <span class="font-label-lg text-label-lg text-unifor-navy">Carlos Eduardo
+                                        Lima</span>
+                                    <p class="text-[12px] text-outline italic">Ontem às 19:05</p>
+                                </div>
+                                <div class="flex gap-2"><button
+                                        class="flex items-center gap-1 text-unifor-navy hover:text-academic-gold transition-colors font-label-md"><span
+                                            class="material-symbols-outlined text-[18px]">reply</span>Responder</button>
+                                </div>
+                            </div>
+                            <p class="font-body-md text-body-md text-on-surface">Concordo com a Ana. O foco em 'software
+                                em funcionamento' é o que define a agilidade aqui. No entanto, o PO deve garantir que o
+                                backlog esteja sempre refinado para que o time não perca o ritmo.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- New Student Comment 2 -->
+                <article class="pt-4">
+                    <div class="flex gap-4">
+                        <div class="z-10">
+                            <img alt="Avatar Aluno"
+                                class="w-12 h-12 rounded-full border-2 border-outline-variant bg-white"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNyfCUrmzSQvRLox4Jtg3q-JDhpef193MtrOhX0i98x6Jn6z1ar2EzjNlfEUjQe9xgTXsebO5iacgnLAdkPFHHmQ4W1JojSPiarP2sle2hdkk-3cfizXUGJ0KFrQodVg8BZXmbeZXoovUeozTUg2j4Chr5d0otkK2XtaVYxJujavjdbz3o0nqyYQQcjxjMk4wYAea2MqRvKobm3Y50pAhPoKo9skfDY-bG0ZM4zD_XsMt2FbAh865ueXZ2DoV98o8H2kobYL1SJnI">
+                        </div>
+                        <div class="flex-1 bg-white border border-outline-variant rounded-xl p-6 shadow-sm"
+                            style="transform: translateY(0px); transition: transform 0.2s ease-out;">
+                            <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <span class="font-label-lg text-label-lg text-unifor-navy">Mariana Freitas</span>
+                                    <p class="text-[12px] text-outline italic">Ontem às 20:30</p>
+                                </div>
+                                <div class="flex gap-2"><button
+                                        class="flex items-center gap-1 text-unifor-navy hover:text-academic-gold transition-colors font-label-md"><span
+                                            class="material-symbols-outlined text-[18px]">reply</span>Responder</button>
+                                </div>
+                            </div>
+                            <p class="font-body-md text-body-md text-on-surface">Professor, como o feedback contínuo
+                                impacta a priorização do backlog em ciclos curtos? Fiquei pensando se isso não gera
+                                muito retrabalho se não for bem gerido.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- New Student Comment 3 -->
+                <article class="pt-4">
+                    <div class="flex gap-4">
+                        <div class="z-10">
+                            <img alt="Avatar Aluno"
+                                class="w-12 h-12 rounded-full border-2 border-outline-variant bg-white"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRigdOp64NCLPCN9UWafWhc7b7C6uC5MfE4UUAkmge9GymqsnINLA4-A1BkO6hspoWeAMp6B0cGjyXsWSMIQ5FHWy4f5aYGt7CgMLyAaqkLFU6cfUAUyBZ7NmlfuuVOTI7uyV4WoP2O9WAMG5CbFynT7euDaBG1o2X32TazqyMzF24vU1o_IjjPZ0e37IcSZI1HJys73BRhdZp9XL9FgZIv-YNqoHHkR5Iw-tVrNsCxbefL9MIJRwOUqRImXwJiFs9RZF55-EKUD4">
+                        </div>
+                        <div class="flex-1 bg-white border border-outline-variant rounded-xl p-6 shadow-sm"
+                            style="transform: translateY(0px); transition: transform 0.2s ease-out;">
+                            <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <span class="font-label-lg text-label-lg text-unifor-navy">João Pedro Santos</span>
+                                    <p class="text-[12px] text-outline italic">Hoje às 08:15</p>
+                                </div>
+                                <div class="flex gap-2"><button
+                                        class="flex items-center gap-1 text-unifor-navy hover:text-academic-gold transition-colors font-label-md"><span
+                                            class="material-symbols-outlined text-[18px]">reply</span>Responder</button>
+                                </div>
+                            </div>
+                            <p class="font-body-md text-body-md text-on-surface">Mariana, pelo que estudei, o retrabalho
+                                é minimizado justamente porque o feedback é constante. É melhor ajustar o rumo em 2
+                                semanas do que descobrir um erro após 6 meses de desenvolvimento cascata.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- Area de Inserção (Input Area) - Floating Style Footer -->
+            <section
+                class="bg-white border-t border-outline-variant p-6 sticky bottom-0 -mx-margin-desktop px-margin-desktop shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+                <div class="max-w-3xl mx-auto">
+                    <div class="mb-3 flex items-center justify-between">
+                        <label class="font-label-lg text-label-lg text-unifor-navy">Participe da discussão</label>
+                        <div class="flex gap-2">
+                            <button
+                                class="p-1.5 hover:bg-surface-container rounded transition-colors text-outline-variant hover:text-unifor-navy"
+                                title="Negrito"><span
+                                    class="material-symbols-outlined text-sm">format_bold</span></button>
+                            <button
+                                class="p-1.5 hover:bg-surface-container rounded transition-colors text-outline-variant hover:text-unifor-navy"
+                                title="Itálico"><span
+                                    class="material-symbols-outlined text-sm">format_italic</span></button>
+                            <button
+                                class="p-1.5 hover:bg-surface-container rounded transition-colors text-outline-variant hover:text-unifor-navy"
+                                title="Lista"><span
+                                    class="material-symbols-outlined text-sm">format_list_bulleted</span></button>
+                            <button
+                                class="p-1.5 hover:bg-surface-container rounded transition-colors text-outline-variant hover:text-unifor-navy"
+                                title="Código"><span class="material-symbols-outlined text-sm">code</span></button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <textarea
+                            class="w-full h-32 p-4 bg-surface-gray border border-outline-variant rounded-xl focus:ring-2 focus:ring-unifor-navy focus:border-unifor-navy transition-all resize-none font-body-md text-body-md placeholder:text-outline-variant"
+                            placeholder="Escreva sua dúvida ou contribuição aqui..."></textarea>
+                        <div class="absolute bottom-4 right-4 flex items-center gap-4">
+                            <span class="text-xs text-outline-variant">Markdown suportado</span>
+                            <button
+                                class="bg-unifor-navy text-white px-8 py-2.5 rounded-lg font-label-lg hover:opacity-90 transition-all flex items-center gap-2">
+                                <span class="material-symbols-outlined">send</span>
+                                Enviar Comentário
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Micro-interaction Scripts -->
+    <script>
+        // Simple hover effect for comment cards
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const inner = card.querySelector('div.flex-1');
+                if (inner) inner.style.transform = 'translateY(-2px)';
+                if (inner) inner.style.transition = 'transform 0.2s ease-out';
+            });
+            card.addEventListener('mouseleave', () => {
+                const inner = card.querySelector('div.flex-1');
+                if (inner) inner.style.transform = 'translateY(0px)';
+            });
+        });
+
+        // Feedback on Like
+        const likeButtons = document.querySelectorAll('button:has(.material-symbols-outlined)');
+        likeButtons.forEach(btn => {
+            const icon = btn.querySelector('.material-symbols-outlined');
+            if (icon && icon.textContent === 'thumb_up') {
+                btn.addEventListener('click', function () {
+                    if (icon.style.fontVariationSettings && icon.style.fontVariationSettings.includes("'FILL' 1")) {
+                        icon.style.fontVariationSettings = "'FILL' 0, 'wght' 400";
+                        this.classList.remove('text-academic-gold');
+                    } else {
+                        icon.style.fontVariationSettings = "'FILL' 1, 'wght' 400";
+                        this.classList.add('text-academic-gold');
+                    }
+                });
+            }
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

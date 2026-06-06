@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>SEC - Meu Desempenho</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "success-green": "#10B981",
+                        "primary": "#000000",
+                        "academic-gold": "#F9A12E",
+                        "error-red": "#EF4444",
+                        "inverse-surface": "#213145",
+                        "secondary-fixed": "#ffddbb",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-container": "#6b3f00",
+                        "primary-container": "#10134d",
+                        "on-tertiary-fixed": "#3a0a06",
+                        "primary-fixed": "#e0e0ff",
+                        "primary-fixed-dim": "#bfc2ff",
+                        "background": "#f8f9ff",
+                        "inverse-primary": "#bfc2ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed-variant": "#3d417b",
+                        "on-primary-container": "#7b7fbd",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-container": "#3a0a06",
+                        "surface-tint": "#555994",
+                        "tertiary-fixed-dim": "#ffb4a8",
+                        "secondary-fixed-dim": "#ffb868",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#71352c",
+                        "tertiary-fixed": "#ffdad4",
+                        "surface-container": "#e5eeff",
+                        "outline-variant": "#c7c5d1",
+                        "surface-gray": "#F8FAFC",
+                        "on-surface-variant": "#464650",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary-fixed": "#10134d",
+                        "on-error": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "inverse-on-surface": "#eaf1ff",
+                        "unifor-navy": "#000040",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#673d00",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#885200",
+                        "tertiary": "#000000",
+                        "outline": "#777681",
+                        "secondary-container": "#fea532",
+                        "on-secondary-fixed": "#2b1700",
+                        "error": "#ba1a1a",
+                        "on-surface": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#bb7064"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Open Sans"],
+                        "headline-lg-mobile": ["Open Sans"],
+                        "label-lg": ["Open Sans"],
+                        "body-lg": ["Open Sans"],
+                        "headline-sm": ["Open Sans"],
+                        "headline-lg": ["Open Sans"],
+                        "body-md": ["Open Sans"],
+                        "body-sm": ["Open Sans"],
+                        "label-md": ["Open Sans"],
+                        "display-lg": ["Open Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .sidebar-active {
+            background-color: #fea532;
+            /* secondary-container from config but tailored to matching active style */
+            color: #6b3f00;
+            /* on-secondary-container */
+            border-radius: 0 9999px 9999px 0;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface">
+    <!-- TopAppBar -->
+    <header
+        class="bg-unifor-navy dark:bg-unifor-navy text-on-primary dark:text-on-primary fixed top-0 left-0 right-0 w-full z-50 flex justify-between items-center px-6 h-20">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-academic-gold" style="font-size: 32px;">school</span>
+            <a href="geral_dashboard.html"
+                class="font-headline-md text-headline-md font-bold text-academic-gold">SEC</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <div
+                class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-unifor-navy font-bold overflow-hidden cursor-pointer">
+                <span class="material-symbols-outlined"
+                    style="font-variation-settings: &quot;FILL&quot; 1;">person</span>
+            </div>
+        </div>
+    </header>
+    <!-- SideNavBar -->
+    <nav
+        class="bg-surface-container-low dark:bg-inverse-surface h-[calc(100vh-5rem)] w-64 fixed left-0 top-20 border-r border-outline-variant flex flex-col py-base z-40 overflow-y-auto">
+        <div class="px-6 py-4 mb-4 border-b border-outline-variant">
+            <div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-3">
+                <span class="material-symbols-outlined text-unifor-navy"
+                    style="font-variation-settings: &quot;FILL&quot; 0;">person</span>
+            </div>
+            <h2 class="font-headline-sm text-headline-sm text-unifor-navy">Portal do Aluno</h2>
+            <p class="font-label-md text-label-md text-on-surface-variant mt-1">Engenharia de Software</p>
+            <p class="font-label-md text-label-md text-on-surface-variant opacity-70">UNIFOR</p>
+        </div>
+        <ul class="flex flex-col gap-2 px-2">
+            <li class="">
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-r-full transition-all duration-200 ease-in-out font-label-lg text-label-lg"
+                    href="geral_dashboard.html">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: &quot;FILL&quot; 0;">dashboard</span>
+                    Dashboard
+                </a>
+            </li>
+            <li class="">
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-r-full transition-all duration-200 ease-in-out font-label-lg text-label-lg"
+                    href="aluno_realizar_simulado.html">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: &quot;FILL&quot; 0;">school</span>Novo Simulado</a>
+            </li>
+            <li class="">
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-r-full transition-all duration-200 ease-in-out font-label-lg text-label-lg"
+                    href="aluno_historico_simulados.html">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: &quot;FILL&quot; 0;">history</span>
+                    Histórico
+                </a>
+            </li>
+            <li class="">
+                <a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-r-full transition-all duration-200 ease-in-out font-label-lg text-label-lg"
+                    href="aluno_desempenho.html">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: &quot;FILL&quot; 1;">bar_chart</span>
+                    Desempenho
+                </a>
+            </li>
+        </ul>
+        <div class="mt-auto px-2 pb-4">
+
+        </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main class="ml-64 pt-20 min-h-screen">
+        <div class="max-w-[1280px] mx-auto p-margin-desktop">
+            <!-- Page Header -->
+            <header class="mb-8">
+                <h1 class="font-headline-lg text-headline-lg text-unifor-navy mb-2">Meu Desempenho</h1>
+                <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Acompanhe sua evolução acadêmica
+                    e identifique pontos de melhoria através de métricas detalhadas dos seus simulados.</p>
+            </header>
+            <!-- KPI Cards Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-gutter">
+                <!-- Media Geral -->
+                <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-lg transition-all hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)]"
+                    style="transform: translateY(0px);">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Média
+                            Geral</span>
+                        <div
+                            class="bg-success-green/10 text-success-green flex items-center px-2 py-1 rounded-full text-xs font-bold">
+                            <span class="material-symbols-outlined text-[16px]">trending_up</span>
+                            <span class="ml-1">+5.2%</span>
+                        </div>
+                    </div>
+                    <div class="flex items-baseline gap-1">
+                        <span class="font-display-lg text-display-lg text-unifor-navy">72.5</span>
+                        <span class="text-headline-sm text-on-surface-variant">%</span>
+                    </div>
+                    <p class="text-body-sm font-body-sm text-on-surface-variant mt-2">vs. média de 67.3% no último mês
+                    </p>
+                </div>
+                <!-- Simulados Realizados -->
+                <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-lg transition-all hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)]"
+                    style="transform: translateY(0px);">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Simulados</span>
+                        <span class="material-symbols-outlined text-unifor-navy">history_edu</span>
+                    </div>
+                    <div class="flex items-baseline gap-1">
+                        <span class="font-display-lg text-display-lg text-unifor-navy">15</span>
+
+                    </div>
+                    <p class="text-body-sm font-body-sm text-on-surface-variant mt-2">600 questões respondidas no total
+                    </p>
+                </div>
+                <!-- Tempo Médio -->
+                <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-lg transition-all hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)]"
+                    style="transform: translateY(0px);">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Tempo
+                            Médio</span>
+                        <span class="material-symbols-outlined text-unifor-navy">timer</span>
+                    </div>
+                    <div class="flex items-baseline gap-1">
+                        <span class="font-display-lg text-display-lg text-unifor-navy">02h 10m</span>
+                    </div>
+                    <p class="text-body-sm font-body-sm text-on-surface-variant mt-2">Ritmo ideal para a prova oficial
+                    </p>
+                </div>
+            </div>
+            <!-- Main Insights Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                <!-- Performance Evolution Chart (Mockup) -->
+                <div class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant p-8 rounded-lg"
+                    style="transform: translateY(0px);">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="font-headline-sm text-headline-sm text-unifor-navy">Evolução de Desempenho</h3>
+                        <select
+                            class="bg-surface-gray border-outline-variant rounded p-2 text-label-md font-label-md outline-none">
+                            <option>Últimos 6 simulados</option>
+                            <option>Semestre atual</option>
+                        </select>
+                    </div>
+                    <!-- Decorative Chart Replacement (CSS Visualization) -->
+                    <div class="relative h-[300px] w-full mt-4 flex items-end justify-between px-4">
+                        <!-- Horizontal Grid Lines -->
+                        <div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-10">
+                            <div class="border-t border-primary h-px w-full"></div>
+                            <div class="border-t border-primary h-px w-full"></div>
+                            <div class="border-t border-primary h-px w-full"></div>
+                            <div class="border-t border-primary h-px w-full"></div>
+                            <div class="border-t border-primary h-px w-full"></div>
+                        </div>
+                        <!-- Data Points & Connecting Line (Abstract representation) -->
+                        <div class="flex-grow h-full relative flex items-end justify-around">
+                            <!-- Point 1 -->
+                            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                                <div
+                                    class="w-3 h-3 bg-unifor-navy rounded-full absolute bottom-[45%] z-10 transition-transform group-hover:scale-150">
+                                </div>
+                                <div
+                                    class="w-10 bg-unifor-navy/10 rounded-t-sm h-[45%] transition-all group-hover:bg-unifor-navy/20">
+                                </div>
+                                <span class="text-label-md font-label-md text-on-surface-variant">Sim. 01</span>
+                            </div>
+                            <!-- Point 2 -->
+                            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                                <div
+                                    class="w-3 h-3 bg-unifor-navy rounded-full absolute bottom-[55%] z-10 transition-transform group-hover:scale-150">
+                                </div>
+                                <div
+                                    class="w-10 bg-unifor-navy/10 rounded-t-sm h-[55%] transition-all group-hover:bg-unifor-navy/20">
+                                </div>
+                                <span class="text-label-md font-label-md text-on-surface-variant">Sim. 02</span>
+                            </div>
+                            <!-- Point 3 -->
+                            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                                <div
+                                    class="w-3 h-3 bg-academic-gold rounded-full absolute bottom-[50%] z-10 transition-transform group-hover:scale-150 shadow-sm">
+                                </div>
+                                <div
+                                    class="w-10 bg-academic-gold/10 rounded-t-sm h-[50%] transition-all group-hover:bg-academic-gold/20 border-x border-t border-academic-gold/20">
+                                </div>
+                                <span class="text-label-md font-label-md text-unifor-navy font-bold">Sim. 03</span>
+                            </div>
+                            <!-- Point 4 -->
+                            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                                <div
+                                    class="w-3 h-3 bg-unifor-navy rounded-full absolute bottom-[68%] z-10 transition-transform group-hover:scale-150">
+                                </div>
+                                <div
+                                    class="w-10 bg-unifor-navy/10 rounded-t-sm h-[68%] transition-all group-hover:bg-unifor-navy/20">
+                                </div>
+                                <span class="text-label-md font-label-md text-on-surface-variant">Sim. 04</span>
+                            </div>
+                            <!-- Point 5 -->
+                            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                                <div
+                                    class="w-3 h-3 bg-unifor-navy rounded-full absolute bottom-[75%] z-10 transition-transform group-hover:scale-150">
+                                </div>
+                                <div
+                                    class="w-10 bg-unifor-navy/10 rounded-t-sm h-[75%] transition-all group-hover:bg-unifor-navy/20">
+                                </div>
+                                <span class="text-label-md font-label-md text-on-surface-variant">Sim. 05</span>
+                            </div>
+                            <!-- Point 6 (Current) -->
+                            <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                                <div
+                                    class="w-4 h-4 bg-unifor-navy border-2 border-white rounded-full absolute bottom-[82%] z-20 shadow-md">
+                                </div>
+                                <div class="w-10 bg-unifor-navy rounded-t-sm h-[82%] shadow-sm"></div>
+                                <span class="text-label-md font-label-md text-unifor-navy font-bold">Atual</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Areas of Improvement -->
+                <div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant p-8 rounded-lg flex flex-col"
+                    style="transform: translateY(0px);">
+                    <h3 class="font-headline-sm text-headline-sm text-unifor-navy mb-6">Áreas de Atenção</h3>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Assuntos com taxa de acerto
+                        inferior a 60%.</p>
+                    <div class="space-y-4 flex-grow">
+                        <!-- Area 1 -->
+                        <div class="p-4 bg-error-container/20 border-l-4 border-error rounded-r-lg">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="font-label-lg text-label-lg text-on-background">Banco de Dados</span>
+                                <span class="text-error font-bold text-label-md">45%</span>
+                            </div>
+                            <p class="text-body-sm text-on-surface-variant">Sugestão: Revisar normalização e SQL
+                                avançado.</p>
+                        </div>
+                        <!-- Area 2 -->
+                        <div class="p-4 bg-error-container/20 border-l-4 border-error rounded-r-lg">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="font-label-lg text-label-lg text-on-background">Sistemas
+                                    Operacionais</span>
+                                <span class="text-error font-bold text-label-md">52%</span>
+                            </div>
+                            <p class="text-body-sm text-on-surface-variant">Sugestão: Focar em gerência de memória e
+                                processos.</p>
+                        </div>
+                        <!-- Area 3 -->
+                        <div class="p-4 bg-secondary-container/10 border-l-4 border-academic-gold rounded-r-lg">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="font-label-lg text-label-lg text-on-background">Engenharia de
+                                    Requisitos</span>
+                                <span class="text-academic-gold font-bold text-label-md">58%</span>
+                            </div>
+                            <p class="text-body-sm text-on-surface-variant">Sugestão: Praticar diagramas de caso de uso.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Performance By Component (Horizontal Chart) -->
+                <div class="lg:col-span-12 bg-surface-container-lowest border border-outline-variant p-8 rounded-lg mt-gutter"
+                    style="transform: translateY(0px);">
+                    <h3 class="font-headline-sm text-headline-sm text-unifor-navy mb-8">Desempenho por Componente (INEP)
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Bar 1 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-label-lg text-label-lg text-unifor-navy">Formação Geral</span>
+                                <span class="font-headline-sm text-headline-sm text-success-green">85%</span>
+                            </div>
+                            <div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+                                <div class="h-full bg-success-green rounded-full transition-all duration-1000 ease-out"
+                                    style="width: 85%;"></div>
+                            </div>
+                            <p class="text-body-sm text-on-surface-variant mt-2">Muito acima da média nacional (62%)</p>
+                        </div>
+                        <!-- Bar 2 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-label-lg text-label-lg text-unifor-navy">Conhecimento
+                                    Específico</span>
+                                <span class="font-headline-sm text-headline-sm text-unifor-navy">65%</span>
+                            </div>
+                            <div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+                                <div class="h-full bg-unifor-navy rounded-full transition-all duration-1000 ease-out"
+                                    style="width: 65%;"></div>
+                            </div>
+                            <p class="text-body-sm text-on-surface-variant mt-2">Acima da média nacional (54%)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Achievement Banner -->
+                <div
+                    class="lg:col-span-12 relative overflow-hidden bg-unifor-navy rounded-lg p-10 text-on-primary flex flex-col md:flex-row items-center justify-between gap-8 mt-gutter">
+                    <!-- Background Decoration -->
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-academic-gold/10 rounded-full blur-3xl -mr-32 -mt-32">
+                    </div>
+                    <div class="relative z-10 max-w-xl">
+                        <span
+                            class="inline-block bg-academic-gold text-unifor-navy font-bold text-[10px] uppercase px-2 py-1 rounded mb-4 tracking-tighter">Conquista
+                            Acadêmica</span>
+                        <h2 class="font-headline-lg text-headline-lg mb-4">Você está no Top 10% da sua turma!</h2>
+                        <p class="font-body-md text-body-md opacity-80">Continue com sua rotina de estudos para garantir
+                            uma excelente pontuação no ENADE oficial. Suas maiores forças estão em Fundamentos e
+                            Arquitetura de Software.</p>
+                    </div>
+                    <div class="relative z-10 flex-shrink-0">
+                        <img alt="Success Mascot" class="w-40 h-40 object-contain drop-shadow-xl"
+                            data-alt="A stylized, modern academic 3D character icon wearing a graduation cap, rendered in a crisp minimalist style against a dark navy blue background. The character has a proud, cheerful expression and is surrounded by subtle golden particles, symbolizing academic achievement and excellence within a professional educational platform interface."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh5KseRqxVB78Wa-g-R-Bc9atEzMka4WFV13-7S4uQ-IpZXbUPdnTw2kGNR2uoYbqmw5uXwTtleWubrZ6PcCnnxp81xZwyyqcOH-yIiKMYgAoh5Q6tKEPFgtTMv1egMjVbjueC3dgJO2b8w0OM8EaGe8Vjjqf3Q8c6U93pCwGSl1lN8G9n2VCnMTt32vIBr_6a2XJV1UggvCONAB5ygZBlNavL__Q5-wz-8ihjDhJ9tP5r9v6992-ZptNCz0YXCDLpHhQ_0QfDoEY">
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer
+                class="mt-margin-desktop py-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4 text-body-sm text-on-surface-variant">
+                <p class="">© 2024 SEC - Sistema ENADE Comentado. Universidade de Fortaleza.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-unifor-navy transition-colors" href="#">Políticas de Privacidade</a>
+                    <a class="hover:text-unifor-navy transition-colors" href="#">Termos de Uso</a>
+                    <a class="hover:text-unifor-navy transition-colors" href="#">Suporte Acadêmico</a>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script>
+        // Micro-interaction for hover effects on KPI cards
+        document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+
+        // Simple animation trigger for bar charts
+        window.addEventListener('load', () => {
+            const bars = document.querySelectorAll('.h-full');
+            bars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

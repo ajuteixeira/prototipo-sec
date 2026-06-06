@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>SEC - Simulado ENADE Comentado</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#6b3f00",
+                        "tertiary-fixed-dim": "#ffb4a8",
+                        "primary-container": "#10134d",
+                        "on-surface": "#0b1c30",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c7c5d1",
+                        "surface-tint": "#555994",
+                        "on-error": "#ffffff",
+                        "primary": "#000000",
+                        "on-tertiary-fixed": "#3a0a06",
+                        "unifor-navy": "#000040",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-fixed-variant": "#673d00",
+                        "primary-fixed-dim": "#bfc2ff",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#213145",
+                        "on-primary-fixed": "#10134d",
+                        "secondary-fixed-dim": "#ffb868",
+                        "inverse-primary": "#bfc2ff",
+                        "secondary-fixed": "#ffddbb",
+                        "on-background": "#0b1c30",
+                        "secondary": "#885200",
+                        "on-secondary-fixed": "#2b1700",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-container": "#3a0a06",
+                        "success-green": "#10B981",
+                        "secondary-container": "#fea532",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#464650",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdad4",
+                        "academic-gold": "#F9A12E",
+                        "primary-fixed": "#e0e0ff",
+                        "surface": "#f8f9ff",
+                        "on-primary-container": "#7b7fbd",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9ff",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-container": "#bb7064",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#71352c",
+                        "on-primary-fixed-variant": "#3d417b",
+                        "surface-gray": "#F8FAFC",
+                        "surface-container": "#e5eeff",
+                        "error-red": "#EF4444",
+                        "surface-container-highest": "#d3e4fe",
+                        "background": "#f8f9ff",
+                        "outline": "#777681"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Open Sans"],
+                        "label-md": ["Open Sans"],
+                        "headline-lg-mobile": ["Open Sans"],
+                        "body-md": ["Open Sans"],
+                        "headline-sm": ["Open Sans"],
+                        "display-lg": ["Open Sans"],
+                        "body-lg": ["Open Sans"],
+                        "label-lg": ["Open Sans"],
+                        "headline-md": ["Open Sans"],
+                        "headline-lg": ["Open Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        body {
+            background-color: #f8f9ff;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col font-body-md text-on-surface">
+    <!-- TopAppBar -->
+    <header
+        class="bg-unifor-navy dark:bg-unifor-navy text-on-primary dark:text-on-primary fixed top-0 left-0 right-0 w-full z-50 flex justify-between items-center px-6 h-20">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-academic-gold" style="font-size: 32px;">school</span>
+            <a href="geral_dashboard.html"
+                class="font-headline-md text-headline-md font-bold text-academic-gold">SEC</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <div
+                class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-unifor-navy font-bold overflow-hidden cursor-pointer">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEYHiHJEligjOudQiURHNV2_GJtN7XMenlOT97kEcB9ipd_h2PQKyJTLGwpZUcLOk6LUFVPP9AwHiT4kF74uYm5gzn7_fNXKLQbJk7N_F5Efwtjb_vp0Czr2j19LzUBfSb4YVUlm2zHwak2z9CFkudGDdfXYyyEjtx3XRzGpoRwM_JpRkphoT9cQ-nzDojVUDafvFHpKRb69UBR_QyH0aZDNKJZtKqNw80u1a5AyY2uXx1JTMW0FYdFHJjH8WqQtExmF6t02-yD1U"
+                    alt="User Profile" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow w-full px-margin-desktop max-w-container-max mx-auto pt-32 pb-12 flex flex-col gap-12">
+        <!-- Welcome Section -->
+        <section class="flex flex-col gap-2">
+            <h2 class="font-display-lg text-display-lg text-unifor-navy">Bem-vindo ao Portal SEC, <span
+                    class="text-academic-gold">Juliana</span>.</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Este é o seu painel central. Escolha
+                um módulo abaixo para continuar suas atividades acadêmicas.</p>
+        </section>
+        <!-- Access Modules (Bento Grid Style) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Área do Aluno -->
+            <div
+                class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 flex flex-col gap-6 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow group relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-surface-container-low rounded-bl-full -z-10 group-hover:bg-surface-variant transition-colors">
+                </div>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-unifor-navy">
+                        <span class="material-symbols-outlined text-2xl">person</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-unifor-navy">Área do Aluno</h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant flex-grow">Acesse seus simulados, consulte
+                    seu desempenho e participe das discussões nos fóruns.</p>
+                <div class="flex flex-col gap-3">
+                    <button id="btn-realizar-simulado"
+                        class="w-full bg-unifor-navy text-on-primary py-3 px-4 rounded font-label-lg text-label-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm">play_arrow</span> Realizar Simulado
+                    </button>
+                    <button id="btn-consultar-desempenho"
+                        class="w-full border border-unifor-navy text-unifor-navy py-3 px-4 rounded font-label-lg text-label-lg hover:bg-surface-container transition-colors flex items-center justify-center gap-2">Consultar
+                        Desempenho</button>
+                </div>
+            </div>
+            <!-- Área do Professor -->
+            <div
+                class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 flex flex-col gap-6 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow group relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-surface-container-low rounded-bl-full -z-10 group-hover:bg-surface-variant transition-colors">
+                </div>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-unifor-navy">
+                        <span class="material-symbols-outlined text-2xl">local_library</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-unifor-navy">Área do Professor</h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant flex-grow">Cadastre novas questões, adicione
+                    comentários nos fórus e gerencie suas questões,</p>
+                <div class="flex flex-col gap-3">
+                    <button id="btn-cadastrar-questao"
+                        class="w-full bg-unifor-navy text-on-primary py-3 px-4 rounded font-label-lg text-label-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm">add_circle</span> Cadastrar Questão</button>
+                    <button id="btn-gerenciar-questoes"
+                        class="w-full border border-unifor-navy text-unifor-navy py-3 px-4 rounded font-label-lg text-label-lg hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+                        Gerenciar Questões</button>
+                </div>
+            </div>
+            <!-- Área do Coordenador -->
+            <div
+                class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 flex flex-col gap-6 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow group relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-surface-container-low rounded-bl-full -z-10 group-hover:bg-surface-variant transition-colors">
+                </div>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-unifor-navy">
+                        <span class="material-symbols-outlined text-2xl">admin_panel_settings</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-unifor-navy">Área do Coordenador</h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant flex-grow">Acompanhe métricas gerais,
+                    consulte questões cadastradas para seu curso e gerencie turmas.</p>
+                <div class="flex flex-col gap-3">
+                    <button id="btn-desempenho-turmas"
+                        class="w-full bg-unifor-navy text-on-primary py-3 px-4 rounded font-label-lg text-label-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm">bar_chart</span>Ver Desempenho de
+                        Turmas</button>
+                    <button id="btn-banco-questoes"
+                        class="w-full border border-unifor-navy text-unifor-navy py-3 px-4 rounded font-label-lg text-label-lg hover:bg-surface-container transition-colors flex items-center justify-center gap-2">Consultar
+                        Banco de Questões</button>
+                </div>
+            </div>
+        </section>
+        <!-- Highlights / Recent Activity -->
+        <section class="flex flex-col gap-6 pt-8 border-t border-outline-variant">
+            <h2 class="font-headline-md text-headline-md text-unifor-navy">Últimas Atividades</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Activity Item 1 -->
+                <div
+                    class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 flex items-start gap-4">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-unifor-navy shrink-0">
+                        <span class="material-symbols-outlined text-lg">assignment_turned_in</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-headline-sm text-on-surface">Simulado Concluido</h4>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Você finalizou um simulado com
+                            85% de acertos.</p>
+                        <span class="font-label-md text-label-md text-outline mt-2 block">Há 2 horas</span>
+                    </div>
+                    <button class="ml-auto text-academic-gold hover:text-unifor-navy transition-colors">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+                <!-- Activity Item 2 -->
+                <div
+                    class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 flex items-start gap-4">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-unifor-navy shrink-0">
+                        <span class="material-symbols-outlined text-lg">new_releases</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-headline-sm text-on-surface">Novas Questões Adicionadas</h4>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Você adicionou 15 novas
+                            questões à disciplina Engenharia de Software.</p>
+                        <span class="font-label-md text-label-md text-outline mt-2 block">Ontem</span>
+                    </div>
+                    <button class="ml-auto text-academic-gold hover:text-unifor-navy transition-colors">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-surface-gray dark:bg-on-surface text-on-surface-variant dark:text-surface-variant w-full py-8 border-t border-outline-variant mt-auto">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-4">
+            <span class="font-label-lg text-label-lg font-bold text-unifor-navy">© 2026 SEC - Unifor. Todos os direitos
+                reservados.</span>
+            <nav class="flex gap-6">
+                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-unifor-navy dark:hover:text-academic-gold opacity-100 hover:opacity-80 transition-colors"
+                    href="#">Políticas de Privacidade</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-unifor-navy dark:hover:text-academic-gold opacity-100 hover:opacity-80 transition-colors"
+                    href="#">Termos de Uso</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-unifor-navy dark:hover:text-academic-gold opacity-100 hover:opacity-80 transition-colors"
+                    href="#">Suporte Acadêmico</a>
+            </nav>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.getElementById('btn-realizar-simulado')?.addEventListener('click', function () {
+            window.location.href = 'aluno_realizar_simulado.html';
+        });
+        document.getElementById('btn-consultar-desempenho')?.addEventListener('click', function () {
+            window.location.href = 'aluno_desempenho.html';
+        });
+        document.getElementById('btn-cadastrar-questao')?.addEventListener('click', function () {
+            window.location.href = 'professor_cadastrar_questao.html';
+        });
+        document.getElementById('btn-gerenciar-questoes')?.addEventListener('click', function () {
+            window.location.href = 'professor_gerenciar_suas_questoes.html';
+        });
+        document.getElementById('btn-desempenho-turmas')?.addEventListener('click', function () {
+            window.location.href = 'coordenador_desempenho_turmas.html';
+        });
+        document.getElementById('btn-banco-questoes')?.addEventListener('click', function () {
+            window.location.href = 'coordenador_banco_de-questoes.html';
+        });
+    </script>
+</body>
+
+</html>
