@@ -544,9 +544,14 @@
     </footer>
     <script>
         document.querySelectorAll('button').forEach(button => {
-            if (button.textContent.trim().includes('Acessar Fórum')) {
+            if (button.textContent.trim().includes('Fórum')) {
                 button.addEventListener('click', function () {
                     window.location.href = 'professor_e_aluno_forum_questao.html';
+                });
+            }
+            if (button.textContent.trim().includes('Gabarito')) {
+                button.addEventListener('click', function () {
+                    window.location.href = 'gabarito_comentado.html';
                 });
             }
         });
